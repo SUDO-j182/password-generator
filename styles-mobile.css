@@ -1,0 +1,322 @@
+/* Set the body styles */
+body {
+    background-color: #1e1e1e;
+    color: #00ff00;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Set the terminal styles */
+.terminal {
+    background-color: #000;
+    border: 2px solid #00ff00;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Set the terminal header styles */
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #00ff00;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Set the terminal header buttons styles */
+.terminal-header .buttons {
+    display: flex;
+    gap: 5px;
+}
+
+/* Set the terminal header button styles */
+.terminal-header .buttons span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #00ff00;
+}
+
+/* Set the terminal header title styles */
+.terminal-header .title {
+    color: #00ff00;
+    font-size: 14px;
+}
+
+/* Set the terminal body styles */
+.terminal-body {
+    padding: 10px;
+    border: 1px solid #00ff00;
+    position: relative;
+    background-color: black;
+    color: #00ff00;
+    font-family: monospace;
+    min-height: 200px;
+    overflow: hidden;
+    border-top: 1px solid #00ff00;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    animation: flicker 0.1s infinite;
+}
+
+/* Set the password controls and output styles */
+.password-controls,
+.password-output {
+    margin-bottom: 10px;
+}
+
+/* Set the label styles */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Set the input styles */
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: #000;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    font-family: monospace;
+}
+
+/* Set the checkbox group styles */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* Set the checkbox group div styles */
+.checkbox-group div {
+    display: flex;
+    align-items: center;
+}
+
+/* Set the checkbox input styles */
+.checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Set the ASCII checkbox styles */
+.ascii-checkbox {
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    margin-right: 5px;
+    color: #00ff00;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Set the ASCII checkbox hover styles */
+.ascii-checkbox:hover {
+    text-shadow: 0 0 5px #00ff00;
+}
+
+/* Set the button styles */
+.btn-gen {
+    background-color: #000;
+    color: #00ff00;
+    padding: 5px 10px;
+    border: 1px solid #00ff00;
+    cursor: pointer;
+    font-family: monospace;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Set the button hover styles */
+.btn-gen:hover {
+    background-color: #00ff00;
+    color: #000;
+}
+
+/* Set the footer container styles */
+.footer-container {
+    text-align: center;
+    padding: 5px;
+    background-color: #000;
+    color: #00ff00;
+    border-top: 1px solid #00ff00;
+    width: 100%;
+    max-width: 100%;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Set the scanline effect for the password generator */
+#generator-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Set the scanline effect styles */
+#generator-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        rgba(0, 255, 0, 0.2) 0px,
+        rgba(0, 255, 0, 0.1) 2px,
+        transparent 4px
+    );
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Set the cursor styles */
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 12px;
+    background-color: #00ff00;
+    margin-left: 2px;
+    animation: blink 0.5s steps(2) infinite;
+}
+
+/* Set the blink animation */
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Set the preset button styles */
+.preset-btn {
+    background-color: black;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: monospace;
+    margin: 5px;
+}
+
+/* Set the preset button hover styles */
+.preset-btn:hover {
+    background-color: #00ff00;
+    color: black;
+}
+
+/* Set the copy message styles */
+#copy-message {
+    position: absolute;
+    background: black;
+    color: #00ff00;
+    font-family: monospace;
+    padding: 5px 10px;
+    border: 1px solid #00ff00;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Set the copy message show styles */
+#copy-message.show {
+    opacity: 1;
+}
+
+/* Set the strength indicator styles */
+#strength-indicator {
+    color: #00ff00;
+    font-family: monospace;
+    margin-top: 5px;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Set the flicker animation */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.9; }
+}
+
+/* Hide the info section and ASCII graphics window for mobile */
+#info-section,
+#battle-terminal {
+    display: none;
+}
+
+/* Set the terminal frame ul styles */
+.terminal-frame ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Set the terminal frame ul li before styles */
+.terminal-frame ul li::before {
+    content: "• ";
+    color: #00ff00;
+}
+
+/* Set the body styles */
+body {
+    background-color: #000;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Set the scanline effect animation */
+@keyframes scanlines {
+    from { background-position: 0 0; }
+    to { background-position: 0 4px; }
+}
+
+/* Set the scanline effect styles */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        rgba(0, 255, 0, 0.1) 0px,
+        rgba(0, 255, 0, 0.05) 2px,
+        transparent 4px
+    );
+    animation: scanlines 1s linear infinite;
+    z-index: 999;
+}
+
+/* Set the glow effect animation */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #00ff00; }
+    50% { text-shadow: 0 0 10px #00ff00; }
+    100% { text-shadow: 0 0 5px #00ff00; }
+}
+
+/* Set the glow effect styles */
+.glow {
+    animation: glow 2s infinite alternate;
+}
+
+/* Set the CRT flicker effect animation */
+@keyframes crt-flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.98; }
+    100% { opacity: 1; }
+}
+
+/* Set the CRT flicker effect styles */
+.crt-flicker {
+    animation: crt-flicker 0.1s infinite alternate;
+}

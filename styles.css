@@ -1,0 +1,315 @@
+/* ===============================
+   Global Layout & Typography
+================================= */
+body {
+    background-color: #000;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    position: relative;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* ===============================
+   Terminal Layout
+================================= */
+.terminal {
+    background: #000;
+    border: 2px solid #00ff00;
+    width: 60%;
+    max-width: 600px;
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #00ff00;
+}
+
+.terminal-header .buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.terminal-header .buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #00ff00;
+    display: inline-block;
+}
+
+.terminal-header .title {
+    font-size: 14px;
+}
+
+.terminal-body {
+    padding: 10px;
+    border-top: 1px solid #00ff00;
+    background: black;
+    min-height: 200px;
+    position: relative;
+    animation: flicker 0.1s infinite;
+    overflow: hidden;
+}
+
+/* ===============================
+   Generator Interface
+================================= */
+#generator-container {
+    position: relative;
+    z-index: 1;
+}
+
+.password-controls,
+.password-output {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    background: black;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    font-family: monospace;
+}
+
+/* ===============================
+   ASCII Checkbox Styling
+================================= */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.checkbox-group div {
+    display: flex;
+    align-items: center;
+}
+
+.ascii-checkbox {
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    margin-right: 5px;
+}
+
+/* ===============================
+   Buttons
+================================= */
+.btn-gen,
+.preset-btn {
+    background: black;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: monospace;
+    margin: 5px 0;
+}
+
+.btn-gen:hover,
+.preset-btn:hover {
+    background: #00ff00;
+    color: black;
+}
+
+/* ===============================
+   Footer
+================================= */
+.footer-container {
+    text-align: center;
+    padding: 5px;
+    background: #000;
+    color: #00ff00;
+    border-top: 1px solid #00ff00;
+    width: 60%;
+    max-width: 600px;
+}
+
+/* ===============================
+   Visual Effects
+================================= */
+#generator-container::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+        rgba(0, 255, 0, 0.2) 0px,
+        rgba(0, 255, 0, 0.1) 2px,
+        transparent 4px
+    );
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 12px;
+    background: #00ff00;
+    margin-left: 2px;
+    animation: blink 0.5s steps(2) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.9; }
+}
+
+.glow {
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #00ff00; }
+    50% { text-shadow: 0 0 10px #00ff00; }
+    100% { text-shadow: 0 0 5px #00ff00; }
+}
+
+.scanlines {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        rgba(0, 255, 0, 0.1) 0px,
+        rgba(0, 255, 0, 0.05) 2px,
+        transparent 4px
+    );
+    animation: scanlines 1s linear infinite;
+    z-index: 999;
+}
+
+@keyframes scanlines {
+    from { background-position: 0 0; }
+    to { background-position: 0 4px; }
+}
+
+/* ===============================
+   Copy Message & Strength Meter
+================================= */
+#copy-message {
+    position: absolute;
+    background: black;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 5px 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#copy-message.show {
+    opacity: 1;
+}
+
+#strength-indicator {
+    margin-top: 5px;
+}
+
+/* ===============================
+   Info Section
+================================= */
+#info-section {
+    margin-top: 20px;
+    padding: 10px;
+    color: #00ff00;
+    background: black;
+    border: 1px solid #00ff00;
+    max-width: 400px;
+    margin-left: 20px;
+}
+
+.terminal-frame ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.terminal-frame ul li::before {
+    content: "• ";
+    color: #00ff00;
+}
+
+/* ===============================
+   Battle Terminal
+================================= */
+#battle-terminal {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 300px;
+    height: 300px;
+    background: black;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    font-family: monospace;
+    padding: 10px;
+    overflow: hidden;
+    cursor: move;
+}
+
+#battle-log {
+    height: 100%;
+    overflow-y: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+    scrollbar-color: #00ff00 black;
+}
+
+/* ASCII scrollbars */
+#battle-log::-webkit-scrollbar {
+    width: 10px;
+}
+#battle-log::-webkit-scrollbar-track {
+    background: black;
+    border: 1px solid #00ff00;
+}
+#battle-log::-webkit-scrollbar-thumb {
+    background: #00ff00;
+    border: 1px solid black;
+    box-shadow: inset 0 0 0 1px black;
+}
+#battle-log::-webkit-scrollbar-thumb:hover {
+    background: #00cc00;
+}
+
+/* Battle terminal ASCII displays */
+#attack-bar,
+#countermeasures-animation,
+#firewall-effect,
+#alert-symbols {
+    width: 50%;
+    height: 30px;
+    background: black;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    margin-top: 10px;
+    white-space: nowrap;
+}
