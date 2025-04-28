@@ -6,7 +6,7 @@ Designed with a clean, accessible terminal-style interface for both desktop and 
 ## Status
 
 **Status:** COMPLETE  
-**Last Updated:** *(add date manually)*
+**Last Updated:** *28/04/2025*
 
 ## Tech Stack
 
