@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Metadata -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+
+    <!-- Stylesheets -->
+    <link id="desktop-styles" rel="stylesheet" href="styles.css" />
+    <link id="mobile-styles" rel="stylesheet" href="styles-mobile.css" disabled />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Device-Based CSS Switching Script -->
+    <script>
+        window.onload = () => {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            document.getElementById('desktop-styles').disabled = isMobile;
+            document.getElementById('mobile-styles').disabled = !isMobile;
+        };
+    </script>
+</head>
+
+<body>
+
+    <!-- Terminal-Style Main UI -->
+    <div class="terminal">
+
+        <!-- Terminal Header Bar -->
+        <div class="terminal-header">
+            <div class="buttons">
+                <span class="close"></span>
+                <span class="minimize"></span>
+                <span class="maximize"></span>
+            </div>
+            <div class="title">Secure Password Generator</div>
+        </div>
+
+        <!-- Terminal Body Section -->
+        <div class="terminal-body">
+            <!-- Boot Sequence Output -->
+            <div id="boot-sequence" aria-live="polite"></div>
+
+            <!-- Password Generator UI (shown after boot sequence) -->
+            <div id="generator-container" class="generator" style="display: none;">
+                
+                <!-- Generator Controls -->
+                <div class="password-controls">
+                    <label for="length">Password Length:</label>
+                    <input type="number" id="length" min="4" max="20" value="12" />
+
+                    <!-- Checkbox Options -->
+                    <div class="checkbox-group" role="group" aria-labelledby="checkbox-options">
+                        <div>
+                            <span class="ascii-checkbox" id="chk-uppercase" data-checked="true" role="checkbox" aria-checked="true">[X]</span>
+                            <label for="chk-uppercase">Include Uppercase</label>
+                        </div>
+                        <div>
+                            <span class="ascii-checkbox" id="chk-lowercase" data-checked="true" role="checkbox" aria-checked="true">[X]</span>
+                            <label for="chk-lowercase">Include Lowercase</label>
+                        </div>
+                        <div>
+                            <span class="ascii-checkbox" id="chk-numbers" data-checked="true" role="checkbox" aria-checked="true">[X]</span>
+                            <label for="chk-numbers">Include Numbers</label>
+                        </div>
+                        <div>
+                            <span class="ascii-checkbox" id="chk-symbols" data-checked="true" role="checkbox" aria-checked="true">[X]</span>
+                            <label for="chk-symbols">Include Symbols</label>
+                        </div>
+                    </div>
+
+                    <button id="generate" class="btn-gen" aria-label="Generate a new secure password">
+                        Generate Your Password
+                    </button>
+                </div>
+
+                <!-- Output Area -->
+                <div class="password-output">
+                    <label for="password">Generated Password:</label>
+                    <input
+                        type="text"
+                        id="password"
+                        class="input-password"
+                        placeholder="Password will appear here"
+                        readonly
+                        aria-live="polite"
+                    />
+                    <button id="copy-password" class="btn-gen" aria-label="Copy the generated password">
+                        Copy Password
+                    </button>
+                    <span id="copy-message" role="alert">Password copied!</span>
+                    <span class="cursor" aria-hidden="true"></span>
+                    <div id="strength-indicator" aria-live="polite"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <h3>
+                Developed by Jai using basic HTML, CSS, and JavaScript. PWA version currently in development.
+            </h3>
+        </div>
+    </footer>
+
+    <!-- External Script -->
+    <script src="script.js"></script>
+</body>
+</html>
+
