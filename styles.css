@@ -1,5 +1,4 @@
-/*SIGNITURE COLOUR SCHEME
-*/
+/* SIGNATURE COLOUR SCHEME */
 :root {
     --primary-color: #008b8b;
     --text-color: #ffff00;
@@ -9,13 +8,13 @@
     --alert-color: #ff0000;
     --background-color: #000000;
   }
-
-/* ===============================
-   Global Layout & Typography
-================================= */
-body {
-    background-color: #000;
-    color: #00ff00;
+  
+  /* ===============================
+     Global Layout & Typography
+  ================================= */
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 20px;
@@ -25,303 +24,305 @@ body {
     align-items: flex-start;
     overflow: hidden;
     position: relative;
-    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
-}
-
-/* ===============================
-   Terminal Layout
-================================= */
-.terminal {
-    background: #000;
-    border: 2px solid #00ff00;
+    text-shadow: 0 0 5px var(--text-color);
+  }
+  
+  /* ===============================
+     Terminal Layout
+  ================================= */
+  .terminal {
+    background: var(--background-color);
+    border: 2px solid var(--primary-color);
     width: 60%;
     max-width: 600px;
     padding: 10px;
     margin-right: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-}
-
-.terminal-header {
+    box-shadow: 0 0 10px var(--primary-color);
+  }
+  
+  .terminal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    border-bottom: 1px solid #00ff00;
-}
-
-.terminal-header .buttons {
+    border-bottom: 1px solid var(--primary-color);
+  }
+  
+  .terminal-header .buttons {
     display: flex;
     gap: 5px;
-}
-
-.terminal-header .buttons span {
+  }
+  
+  .terminal-header .buttons span {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #00ff00;
+    background: var(--primary-color);
     display: inline-block;
-}
-
-.terminal-header .title {
+  }
+  
+  .terminal-header .title {
     font-size: 14px;
-}
-
-.terminal-body {
+  }
+  
+  .terminal-body {
     padding: 10px;
-    border-top: 1px solid #00ff00;
-    background: black;
+    border-top: 1px solid var(--primary-color);
+    background: var(--panel-color);
     min-height: 200px;
     position: relative;
     animation: flicker 0.1s infinite;
     overflow: hidden;
-}
-
-/* ===============================
-   Generator Interface
-================================= */
-#generator-container {
+  }
+  
+  /* ===============================
+     Generator Interface
+  ================================= */
+  #generator-container {
     position: relative;
     z-index: 1;
-}
-
-.password-controls,
-.password-output {
+  }
+  
+  .password-controls,
+  .password-output {
     margin-bottom: 10px;
-}
-
-label {
+  }
+  
+  label {
     display: block;
     margin-bottom: 5px;
-}
-
-input[type="number"],
-input[type="text"] {
+  }
+  
+  input[type="number"],
+  input[type="text"] {
     width: 100%;
     padding: 5px;
     margin-bottom: 5px;
-    background: black;
-    border: 1px solid #00ff00;
-    color: #00ff00;
+    background: var(--textarea-color);
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
     font-family: monospace;
-}
-
-/* ===============================
-   ASCII Checkbox Styling
-================================= */
-.checkbox-group {
+  }
+  
+  /* ===============================
+     ASCII Checkbox Styling
+  ================================= */
+  .checkbox-group {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-}
-
-.checkbox-group div {
+  }
+  
+  .checkbox-group div {
     display: flex;
     align-items: center;
-}
-
-.ascii-checkbox {
+  }
+  
+  .ascii-checkbox {
     font-size: 16px;
     cursor: pointer;
     user-select: none;
     margin-right: 5px;
-}
-
-/* ===============================
-   Buttons
-================================= */
-.btn-gen,
-.preset-btn {
-    background: black;
-    color: #00ff00;
-    border: 1px solid #00ff00;
+  }
+  
+  /* ===============================
+     Buttons
+  ================================= */
+  .btn-gen,
+  .preset-btn {
+    background: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
     padding: 5px 10px;
     cursor: pointer;
     font-family: monospace;
     margin: 5px 0;
-}
-
-.btn-gen:hover,
-.preset-btn:hover {
-    background: #00ff00;
-    color: black;
-}
-
-/* ===============================
-   Footer
-================================= */
-.footer-container {
+  }
+  
+  .btn-gen:hover,
+  .preset-btn:hover {
+    background: var(--btnhover-color);
+    color: var(--background-color);
+  }
+  
+  /* ===============================
+     Footer
+  ================================= */
+  .footer-container {
     text-align: center;
     padding: 5px;
-    background: #000;
-    color: #00ff00;
-    border-top: 1px solid #00ff00;
+    background: var(--background-color);
+    color: var(--text-color);
+    border-top: 1px solid var(--primary-color);
     width: 60%;
     max-width: 600px;
-}
-
-/* ===============================
-   Visual Effects
-================================= */
-#generator-container::after {
+  }
+  
+  /* ===============================
+     Visual Effects
+  ================================= */
+  #generator-container::after {
     content: "";
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: repeating-linear-gradient(
-        rgba(0, 255, 0, 0.2) 0px,
-        rgba(0, 255, 0, 0.1) 2px,
-        transparent 4px
+      rgba(255, 255, 0, 0.2) 0px,
+      rgba(255, 255, 0, 0.1) 2px,
+      transparent 4px
     );
     opacity: 0.5;
     pointer-events: none;
     z-index: 2;
-}
-
-.cursor {
+  }
+  
+  .cursor {
     display: inline-block;
     width: 8px;
     height: 12px;
-    background: #00ff00;
+    background: var(--text-color);
     margin-left: 2px;
     animation: blink 0.5s steps(2) infinite;
-}
-
-@keyframes blink {
+  }
+  
+  @keyframes blink {
     50% { opacity: 0; }
-}
-
-@keyframes flicker {
+  }
+  
+  @keyframes flicker {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.9; }
-}
-
-.glow {
+  }
+  
+  .glow {
     animation: glow 2s infinite alternate;
-}
-
-@keyframes glow {
-    0% { text-shadow: 0 0 5px #00ff00; }
-    50% { text-shadow: 0 0 10px #00ff00; }
-    100% { text-shadow: 0 0 5px #00ff00; }
-}
-
-.scanlines {
+  }
+  
+  @keyframes glow {
+    0% { text-shadow: 0 0 5px var(--text-color); }
+    50% { text-shadow: 0 0 10px var(--text-color); }
+    100% { text-shadow: 0 0 5px var(--text-color); }
+  }
+  
+  .scanlines {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
     background: repeating-linear-gradient(
-        rgba(0, 255, 0, 0.1) 0px,
-        rgba(0, 255, 0, 0.05) 2px,
-        transparent 4px
+      rgba(255, 255, 0, 0.1) 0px,
+      rgba(255, 255, 0, 0.05) 2px,
+      transparent 4px
     );
     animation: scanlines 1s linear infinite;
     z-index: 999;
-}
-
-@keyframes scanlines {
+  }
+  
+  @keyframes scanlines {
     from { background-position: 0 0; }
     to { background-position: 0 4px; }
-}
-
-/* ===============================
-   Copy Message & Strength Meter
-================================= */
-#copy-message {
+  }
+  
+  /* ===============================
+     Copy Message & Strength Meter
+  ================================= */
+  #copy-message {
     position: absolute;
-    background: black;
-    color: #00ff00;
-    border: 1px solid #00ff00;
+    background: var(--background-color);
+    color: var(--alert-color);
+    border: 1px solid var(--primary-color);
     padding: 5px 10px;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-}
-
-#copy-message.show {
+  }
+  
+  #copy-message.show {
     opacity: 1;
-}
-
-#strength-indicator {
+  }
+  
+  #strength-indicator {
     margin-top: 5px;
-}
-
-/* ===============================
-   Info Section
-================================= */
-#info-section {
+  }
+  
+  /* ===============================
+     Info Section
+  ================================= */
+  #info-section {
     margin-top: 20px;
     padding: 10px;
-    color: #00ff00;
-    background: black;
-    border: 1px solid #00ff00;
+    color: var(--text-color);
+    background: var(--panel-color);
+    border: 1px solid var(--primary-color);
     max-width: 400px;
     margin-left: 20px;
-}
-
-.terminal-frame ul {
+  }
+  
+  .terminal-frame ul {
     list-style: none;
     padding-left: 0;
-}
-
-.terminal-frame ul li::before {
-    content: "• ";
-    color: #00ff00;
-}
-
-/* ===============================
-   Battle Terminal
-================================= */
-#battle-terminal {
+  }
+  
+  .terminal-frame ul li::before {
+    content: "\2022 ";
+    color: var(--text-color);
+  }
+  
+  /* ===============================
+     Battle Terminal
+  ================================= */
+  #battle-terminal {
     position: absolute;
     top: 50px;
     left: 50px;
     width: 300px;
     height: 300px;
-    background: black;
-    color: #00ff00;
-    border: 2px solid #00ff00;
+    background: var(--background-color);
+    color: var(--text-color);
+    border: 2px solid var(--primary-color);
     font-family: monospace;
     padding: 10px;
     overflow: hidden;
     cursor: move;
-}
-
-#battle-log {
+  }
+  
+  #battle-log {
     height: 100%;
     overflow-y: auto;
     white-space: nowrap;
     scrollbar-width: thin;
-    scrollbar-color: #00ff00 black;
-}
-
-/* ASCII scrollbars */
-#battle-log::-webkit-scrollbar {
+    scrollbar-color: var(--primary-color) var(--background-color);
+  }
+  
+  #battle-log::-webkit-scrollbar {
     width: 10px;
-}
-#battle-log::-webkit-scrollbar-track {
-    background: black;
-    border: 1px solid #00ff00;
-}
-#battle-log::-webkit-scrollbar-thumb {
-    background: #00ff00;
-    border: 1px solid black;
-    box-shadow: inset 0 0 0 1px black;
-}
-#battle-log::-webkit-scrollbar-thumb:hover {
+  }
+  #battle-log::-webkit-scrollbar-track {
+    background: var(--background-color);
+    border: 1px solid var(--primary-color);
+  }
+  #battle-log::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border: 1px solid var(--background-color);
+    box-shadow: inset 0 0 0 1px var(--background-color);
+  }
+  #battle-log::-webkit-scrollbar-thumb:hover {
     background: #00cc00;
-}
-
-/* Battle terminal ASCII displays */
-#attack-bar,
-#countermeasures-animation,
-#firewall-effect,
-#alert-symbols {
+  }
+  
+  #attack-bar,
+  #countermeasures-animation,
+  #firewall-effect,
+  #alert-symbols {
     width: 50%;
     height: 30px;
-    background: black;
-    color: #00ff00;
-    border: 1px solid #00ff00;
+    background: var(--panel-color);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
     margin-top: 10px;
     white-space: nowrap;
-}
+  }
