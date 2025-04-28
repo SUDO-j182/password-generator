@@ -1,26 +1,80 @@
 # Password Generator
 
-A simple web tool that makes random passwords based on what you choose, like length or symbols. It was made to practice building small, useful tools using only basic HTML, CSS, and JavaScript.
+A secure, customizable password generator built with pure HTML, CSS, and JavaScript.  
+Designed with a clean, accessible terminal-style interface for both desktop and mobile users.
+
+## Status
+
+**Status:** COMPLETE  
+**Last Updated:** *(add date manually)*
+
+## Tech Stack
+
+- HTML (Semantic, Accessible)
+- CSS (Dark cyan and yellow theme, responsive)
+- JavaScript (Vanilla)
 
 ## Features
 
-- Choose password length
-- Include uppercase, lowercase, numbers, and symbols
-- One-click password generation
-- Styled with a retro terminal look
+| Feature | Status |
+|--------|--------|
+| Generate secure passwords | Implemented |
+| Select uppercase, lowercase, numbers, symbols | Implemented |
+| Adjustable password length (4–20 characters) | Implemented |
+| Copy to clipboard | Implemented |
+| Password strength indicator | Implemented |
+| Accessible ASCII-style checkboxes | Implemented |
+| Responsive mobile and desktop layouts | Implemented |
+| Terminal-style UI aesthetic | Implemented |
+| Modular JavaScript structure | Implemented |
 
-## Planned Updates
+## Frontend Overview
 
-- Offline support using PWA features
-- Option to save generated passwords locally
-- Copy-to-clipboard button
-- More themes and visual polish
+### HTML
 
-## Live Demo
+- Semantic structure with accessible labels and ARIA roles
+- Clear separation between form controls and output display
 
-Try it on GitHub Pages:  
-[https://sudo-j182.github.io/password-generator](https://sudo-j182.github.io/password-generator/)
+### CSS
 
-## How It Was Built
+- Custom theme using dark cyan backgrounds and yellow text
+- Fully responsive for mobile and desktop
+- Separate `styles.css` (desktop) and `styles-mobile.css` (mobile)
+- No scanlines, flicker, or unnecessary animations
 
-This was made as part of a learning journey. The goal was to build something real from scratch without frameworks or libraries, and to learn more about JavaScript logic, conditionals, and user input handling.
+### JavaScript
+
+- Generates passwords based on user-selected options
+- Form validation with input trimming
+- Copy-to-clipboard functionality with visual feedback
+- Password strength assessment
+- Blinking cursor animation at the end of generated passwords
+- Modular event-driven code for maintainability
+
+## Accessibility Features
+
+- ASCII-style checkboxes with proper ARIA attributes
+- Semantic HTML structure
+- High visual contrast for readability
+- Focusable and accessible interactive elements
+
+## Planned Improvements
+
+- Add Progressive Web App (PWA) support
+- Add favicon and branding
+- Add preset generation modes (e.g., PINs, passphrases)
+
+## Additional Notes
+
+- Frontend-only application, no backend or database
+- Mobile-first responsive design
+- Modular and clean codebase for easy extension
+- Developed using Git for version control from project start
+- Focus on accessibility, usability, and clean UI principles
+
+## How to Use
+
+1. Select desired character options (uppercase, lowercase, numbers, symbols).
+2. Set the password length between 4 and 20 characters.
+3. Click "Generate Your Password."
+4. Copy the generated password using the button or by clicking the text.
