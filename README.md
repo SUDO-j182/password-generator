@@ -19,7 +19,7 @@ A simple web tool that makes random passwords based on what you choose, like len
 ## Live Demo
 
 Try it on GitHub Pages:  
-[https://sudo-j182.github.io/Password-Generator](https://sudo-j182.github.io/Password-Generator)
+[https://sudo-j182.github.io/password-generator](https://sudo-j182.github.io/password-generator/)
 
 ## How It Was Built
 
