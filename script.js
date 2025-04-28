@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 bootOutput.style.display = "none";
                 generatorUI.style.display = "block";
-                bootBattleTerminal();
                 initExtras();
             }, 800);
         }
@@ -219,58 +218,6 @@ function executeCommand(command) {
 }
 
 // ============================
-// Battle Terminal ASCII Effects
-// ============================
-function bootBattleTerminal() {
-    const battleTerminal = document.createElement("div");
-    battleTerminal.id = "battle-terminal";
-    battleTerminal.className = "terminal-frame";
-    battleTerminal.innerHTML = `
-        <div id="attack-bar" class="ascii-effect"></div>
-        <div id="countermeasures-animation" class="ascii-effect"></div>
-        <div id="firewall-effect" class="ascii-effect"></div>
-        <div id="alert-symbols" class="ascii-effect"></div>
-    `;
-    document.body.appendChild(battleTerminal);
-
-    // Drag logic
-    battleTerminal.addEventListener("mousedown", function (e) {
-        const shiftX = e.clientX - battleTerminal.getBoundingClientRect().left;
-        const shiftY = e.clientY - battleTerminal.getBoundingClientRect().top;
-
-        function moveAt(x, y) {
-            battleTerminal.style.left = `${x - shiftX}px`;
-            battleTerminal.style.top = `${y - shiftY}px`;
-        }
-
-        function onMouseMove(e) {
-            moveAt(e.pageX, e.pageY);
-        }
-
-        document.addEventListener("mousemove", onMouseMove);
-
-        battleTerminal.addEventListener("mouseup", () => {
-            document.removeEventListener("mousemove", onMouseMove);
-        });
-
-        battleTerminal.ondragstart = () => false;
-    });
-
-    // Effects
-    setInterval(() => {
-        document.getElementById("attack-bar").textContent = `[${"▓".repeat(Math.random() * 10 | 0)}${"░".repeat(10 - (Math.random() * 10 | 0))}]`;
-        document.getElementById("countermeasures-animation").textContent = `~~~~~~~~`;
-        document.getElementById("firewall-effect").textContent = `█████`;
-    }, 1000);
-
-    setInterval(() => {
-        const alert = document.getElementById("alert-symbols");
-        alert.textContent = "⚠⚠⚠ WARNING! ⚠⚠⚠";
-        setTimeout(() => alert.textContent = "", 500);
-    }, 2000);
-}
-
-// ============================
 // Initialization Helpers
 // ============================
 function initExtras() {
@@ -336,3 +283,4 @@ generateButton.addEventListener("click", () => {
     const password = generatePassword();
     document.getElementById("strength-indicator").textContent = `Strength: ${calculateStrength(password)}`;
 });
+
